@@ -1,26 +1,31 @@
-var webpack = require('webpack');
-var path = require('path');
+const config = require('../config/basic.config')
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
     entry: {
         app: ['babel-polyfill', './src/component/main.js']
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
-        filename: 'main.js'
+        path: path.resolve(__dirname, config.publicPath),
+        filename: '[name]/[name].js',
+        publicPath: config.publicPath
     },
     mode:'development',
     module: {
         rules: [
             {
                 test:/\.css$/,
-                use:['style-loader','css-loader']
-            }
-            // {
-            //     test: /\.vue$/,
-            //     loader: 'vue-loader',
-            //     options: vueLoaderConfig
-            // },
+                use:['vue-style-loader','css-loader']
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+            },
             // {
             //     test: /\.js$/,
             //     loader: 'babel-loader',
@@ -45,9 +50,11 @@ module.exports = {
         ]
     },
     resolve: {
-        // '@': resolve('src')
+        alias:{
+            '@': resolve('src')
+        },
     },
     plugins: [
-
+        new VueLoaderPlugin()
     ]
 };

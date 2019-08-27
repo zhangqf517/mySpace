@@ -1,13 +1,17 @@
-<!doctype html>
 <template>
-  <div id="app">
-        <router-view></router-view>
-  </div>
+  <div id="text">{{text}}</div>
 </template>
-
 <script>
 export default {
-    name: 'App'
-}
+  data() {
+    return {
+      text: "hello world"
+    };
+  }
+};
 </script>
-
+<style>
+#test {
+  color: black;
+}
+</style>

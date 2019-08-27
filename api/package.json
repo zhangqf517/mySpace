@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "api": "./node_modules/.bin/nodemon --inspect ./config/app.js",
+    "api": "./node_modules/.bin/nodemon ./config/run.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "koa": "^2.8.1",
+    "koa-router": "^7.4.0",
+    "runkoa": "^1.5.9",
     "webpack": "^4.39.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
