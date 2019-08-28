@@ -1,28 +1,21 @@
 <template>
-    <div id='login'>
-        <div class="login-box">
-            This is login box.
-        </div>
-    </div>
+  <div id="login">
+      <el-button type='primary' @click='logon'>注册</el-button>
+  </div>
 </template>
 
 <script>
-import func from '../../../vue-temp/vue-editor-bridge';
 export default {
-    name:'login',
-    data(){
-        return {
-
-        }
-    },
-    computed:{
-
-    },
-    mounted:function(){
-
-    },
-    methods:{
-        
-    }
-}
+  name: "login",
+  data() {
+    return {};
+  },
+  computed: {},
+  mounted: function() {},
+  methods: {
+      logon(){
+          this.$router.push('/logon')
+      }
+  }
+};
 </script>

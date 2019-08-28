@@ -1,6 +1,18 @@
+//生成client配置
+const GlobalConfigs = require('../../config/globalConfigs')
+const nodeEnv = process.env.NODE_ENV
+const globalConfigs = new GlobalConfigs(nodeEnv, 'client')
+const apiBookDns = globalConfigs.getDNS('apiBook')
+
+const fs = require('fs')
+const configContent = JSON.stringify({apiBookDns})
+fs.writeFileSync('./config/config.json',configContent)
+
+
 const config = require('../config/basic.config')
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -26,27 +38,10 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
             },
-            // {
-            //     test: /\.js$/,
-            //     loader: 'babel-loader',
-            //     include: [resolve('src'), resolve('test')]
-            // },
-            // {
-            //     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            //     loader: 'url-loader',
-            //     options: {
-            //         limit: 10000,
-            //         name: utils.assetsPath('img/[name].[hash:7].[ext]')
-            //     }
-            // },
-            // {
-            //     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-            //     loader: 'url-loader',
-            //     options: {
-            //         limit: 10000,
-            //         name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-            //     }
-            // }
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file-loader'
+            },
         ]
     },
     resolve: {
@@ -56,5 +51,13 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin()
-    ]
+    ],
+    //将vue的文件的访问的url设置成与后端端口一致
+    devServer: {
+        proxy: {
+            '/': {
+                target: config.apiBookDns
+            }
+        }
+    }
 };
