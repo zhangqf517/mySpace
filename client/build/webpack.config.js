@@ -5,8 +5,8 @@ const globalConfigs = new GlobalConfigs(nodeEnv, 'client')
 const apiBookDns = globalConfigs.getDNS('apiBook')
 
 const fs = require('fs')
-const configContent = JSON.stringify({apiBookDns})
-fs.writeFileSync('./config/config.json',configContent)
+const configContent = JSON.stringify({ apiBookDns })
+fs.writeFileSync('./config/config.json', configContent)
 
 
 const config = require('../config/basic.config')
@@ -27,12 +27,12 @@ module.exports = {
         filename: '[name]/[name].js',
         publicPath: config.publicPath
     },
-    mode:'development',
+    mode: 'development',
     module: {
         rules: [
             {
-                test:/\.css$/,
-                use:['vue-style-loader','css-loader']
+                test: /\.css$/,
+                use: ['vue-style-loader', 'css-loader']
             },
             {
                 test: /\.vue$/,
@@ -42,10 +42,14 @@ module.exports = {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
                 loader: 'file-loader'
             },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+            }
         ]
     },
     resolve: {
-        alias:{
+        alias: {
             '@': resolve('src')
         },
     },

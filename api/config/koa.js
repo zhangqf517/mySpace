@@ -1,15 +1,19 @@
 const app = require('../src/app')
 const debug = require('debug')('demo:server');
 const basic_config = require('./basic.config')
+const GlobalConfig = require('../../config/globalConfigs')
+const nodeEnv = process.env.NODE_ENV
+const globalConfig = new GlobalConfig(nodeEnv, 'api')
 
 let port = normalizePort(process.env.PORT || basic_config.app_port)
 //打印输出端口号
 console.log(`端口【${port}】已启动，正在监听中...`);
-
+console.log(`Listening at ${globalConfig.getDNS('api')}`);
 const http = require('http');
 const https = require('https');
 let server = http.createServer(app.callback());
 
+ 
 
 /**
  * Listen on provided port, on all network interfaces.
