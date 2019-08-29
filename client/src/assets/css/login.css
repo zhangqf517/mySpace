@@ -8,56 +8,65 @@
   }
 
 .login {
-    position: absolute;
+    position: relative;
     width: 500px;
     height: 300px;
     padding: 30px 10px;
     left: 53%;
     top: 100px;
-    background-color: rgba(179, 171, 171, 0.3);
 }
 
 .login-box {
-    /* padding: 20px; */
-    margin: 20px;
+    padding: 20px;
     width: 460px;
     height: 240px;
     border-radius: 8px;
-    position: float; 
     background-color: rgba(133, 102, 102, 0.3);
 }
 
 .userCodeArea {
-    width: 430px; 
+    position: float;
+    width: 420px;
     height: 50px;
-    margin: 0 15px;
+    margin: 0px 20px;
+    margin-top: 10px;
     background-color: rgba(34, 11, 11, 0.589);
 }
 
 .passwordCodeArea{
-    width: 430px; 
+    width: 420px; 
     height: 50px;
-    margin: 0 15px;
-    margin-top: 30px;
+    margin: 30px 20px;
     background-color: rgba(34, 11, 11, 0.589);
 }
 
 .area-title {
     position: float;
     float: left;
-    width: 26%;
-    padding: 20px;
+    width: 80px;
+    height: 50px;
     text-align: right;
-    font-size: 18px;
-    color: rgba(200, 200, 200, 0.8);
+    color: rgba(139, 131, 131, 0.664);
+    background-color: rgba(255, 255, 255, 1);
     font-size: 23px;    
+    line-height: 50px;
 }
 
 .inputstyle {
     position: float;
     float: left;
-    width: 46%;
-    padding: 14px;
-    top: 10px;
-    font-size: 20px;
+    padding: 0 20px;
+    width: 296px;
+    height: 50px;
+    color:rgba(139, 131, 131, 0.664);
+    font-size: 23px;
+    border: 0px;
+    outline: none;
+}
+
+.loginBtn{
+    width: 420px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 23px !important;
 }

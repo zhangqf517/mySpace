@@ -10,7 +10,7 @@
           <div class="area-title">密码:</div>
           <input type="password" v-model="currentUser.password" class="inputstyle"/>
         </div>
-          <el-button type='primary' @click='loginClick'>登陆</el-button>
+          <el-button class="loginBtn" type='primary' @click='loginClick'>登陆</el-button>
       </div>
     </div>
   </div>
