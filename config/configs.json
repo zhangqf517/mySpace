@@ -1,7 +1,13 @@
 {
-    "port": 6001,
+    "port": {
+        "default": 6001,
+        "service": 6000,
+        "apiBook": 6001
+    },
     "ip": {
-        "apiBook": "auto"
+        "apiBook": "auto",
+        "api": "auto",
+        "service": "auto"
     },
     "https": {
         "apiBook": true
