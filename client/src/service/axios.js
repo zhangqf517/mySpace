@@ -5,7 +5,12 @@ axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded
 axios.defaults.baseURL = config.my_api
 
 export default {
-    setAxiosPostPromise: (urlClient,data) => {
-        console.log('参数成功进入');
+    setAxiosPostPromise: (urlClient, data) => {
+        console.log('/user/login');
+        return axios.post(urlClient, data).then(response => {
+            return response.data
+        }).catch(err =>{
+            throw err
+        })
     }
 }
