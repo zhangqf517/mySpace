@@ -1,6 +1,6 @@
 const Koa = require('koa')
 const koaStatic = require('koa-static')
-const router = require('koa-router')()
+const router = require('./middleWares/Router/index')
 const path = require('path')
 
 
@@ -10,7 +10,7 @@ const app = new Koa();
 app.use(async(ctx,next) =>{
     await koaStatic(path.dirname(__dirname) + '/dist')(ctx, next)
 })
-// router.use('/login')
+
 
 app.use(router.routes(), router.allowedMethods());
 module.exports = app

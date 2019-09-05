@@ -7,8 +7,6 @@ const actions = {
             return { success: false, err: '用户名或密码为空！' }
         }
         const loginUser = await userService.login(user)
-        console.log(loginUser);
-        console.log(user);
         if (!loginUser.success) {
             return { success: false, err: loginUser.err }
         }
